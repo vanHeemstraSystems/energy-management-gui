@@ -21,6 +21,77 @@
         <div id="myDiv" style="width:90%;height:250px;"></div>	
 		
 		<script>
+		    <!-- TRYING TO FIND A WAY TO MAKE EDITING DATA / UPLOADING DATA MORE EASY -->
+		    const collectionOfRecords = [
+			  {"id": 1, "title": "All Groups"},
+			  {"id": 2, "title": "Group 1: Power Sockets Garage" }
+			];
+		
+            const type = "sankey";
+            const orientation = "h";
+			const pad = 15;
+			const thickness = 30;
+			// line
+			const color = "black";
+			const width = 0.5;
+			let line = {};
+			//line.push(color, width); WRONG
+			line.color = color;
+			line.width = width;
+			console.info("line = ", line);
+			// label
+            const allGroups = ["All Groups"];
+            const groups = [
+			  "Group 1: Power Sockets Garage", 
+			  "Group 2: Kitchen Boiler ", 
+			  "Group 3: Dishwasher", 
+			  "Group 4: Microwave", 
+			  "Group 5: Guest Toilet, Storage, Garage (incl. Sink), Power Socket Kitchen", 
+			  "Group 6: Cellar, Living Room, Terrace, Kitchen, Outdoor Lighting Backyard", 
+			  "Group 7: Kitchen Hob", 
+			  "Group 8: Shower, Guest Bedrooms 1 & 2", 
+			  "Group 9: Hallway, Office, Sitting Room, Attic, Central Heating", 
+			  "Group 10: Dryer", 
+			  "Group 11: Washing Machine", 
+			  "Group 12: Master Bedroom, Bathroom, Corridor, Balcony", 
+			  "Group 13: Garden", 
+			  "Group 14: Carport, Gevel"];
+			const areas = [
+			  "Area: Garage", 
+			  "Area: Kitchen", 
+			  "Area: Living Room", 
+			  "Area: Guest Toilet"];
+			const appliances = [
+			  "Appliance 1",
+			  "Appliance 2"];
+			const label = [].concat(allGroups,groups,areas,appliances);
+			console.info("label = ", label);
+			// color
+            const allGroupsColor = ["black"];
+            const groupsColor = [
+			  "amber", "blue", "coral", "darkblue", "ecru", "f", "green", "h", "ivory", "j", "k", "lime", "maroon", "black"
+			  ];
+			const areasColor = [
+			  "black", "black", "black", "black"
+			  ];
+			const appliancesColor = [
+			  "blue", "blue"
+			  ];
+            <!-- const color = [].concat(allGroupsColor, groupsColor, areasColor, appliancesColor); -->
+			<!-- console.info("color = ", color); -->
+			<!-- // node -->
+            <!-- const node = {}; -->
+			<!-- node.push(pad, thickness, line, label, color); -->
+			<!-- console.info("node = ", node); -->
+			<!-- // link -->
+			<!-- const link = {}; -->
+			<!-- // TO DO -->
+			<!-- console.info("link = ", link); -->
+            <!-- // data -->
+            <!-- var dataFoo = {}; -->
+			<!-- dataFoo.push(type, orientation, node, link); -->
+			<!-- console.info("data = ", dataFoo); -->
+			
 			var data = {
 			  type: "sankey",
 			  orientation: "h",

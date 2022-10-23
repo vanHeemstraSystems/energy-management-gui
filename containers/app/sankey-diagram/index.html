@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Sankey Diagram - Energy Consumption</title>
+		<!-- Plotly.js -->
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </head>
+    <body>
+		<p>
+          Here's a simple Plotly plot - 
+          <a href="https://bit.ly/1Or9igj">plotly.js documentation</a>
+        </p>
+        <!-- Plots go in blank <div> elements. 
+             You can size them in the plot layout,
+             or give the div a size as shown here.
+        -->
+        <div id="myDiv" style="width:90%;height:250px;"></div>	
+		
+		<script>
+			var data = {
+			  type: "sankey",
+			  orientation: "h",
+			  node: {
+				pad: 15,
+				thickness: 30,
+				line: {
+				  color: "black",
+				  width: 0.5
+				},
+			    label: [
+			     <!-- 0 -->
+				 "All Groups", 
+				 <!-- 1-14 -->
+			     "Group 1: Power Sockets Garage", "Group 2: Kitchen Boiler ", "Group 3: Dishwasher", "Group 4: Microwave", "Group 5: Guest Toilet, Storage, Garage (incl. Sink), Power Socket Kitchen", "Group 6: Cellar, Living Room, Terrace, Kitchen, Outdoor Lighting Backyard", "Group 7: Kitchen Hob", "Group 8: Shower, Guest Bedrooms 1 & 2", "Group 9: Hallway, Office, Sitting Room, Attic, Central Heating", "Group 10: Dryer", "Group 11: Washing Machine", "Group 12: Master Bedroom, Bathroom, Corridor, Balcony", "Group 13: Garden", "Group 14: Carport, Gevel",
+		         <!-- 15-? , "Area: 1st Floor", "Area: Ground Floor", "Area: Garden", "Area: Car Portal", "Appliance 1", "Appliance 2" -->
+				 "Area: Garage", "Area: Kitchen", "Area: Living Room", "Area: Guest Toilet"
+			    ], 
+			    color: [
+			     <!-- 0 -->
+				 "black", 
+				 <!-- 1-14 -->
+			     "amber", "blue", "coral", "darkblue", "ecru", "f", "green", "h", "ivory", "j", "k", "lime", "maroon", "black",
+                 <!-- 15-? -->				 
+				 "black"
+			    ]
+			  },
+			  link: {
+				source: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,5,2,3,4,5,6,7,6,5],
+				target: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,15,16,16,16,16,16,16,17,18],
+				value:  [2,2,2,2,2,2,2,2,2,2,2,2,2,2,18,18,18,18,18,18,18,18,18]
+			  }
+			}
+
+			var data = [data]
+
+			var layout = {
+			  title: "Sankey Diagram - Energy Consumption",
+			  font: {
+				size: 10
+			  }
+			}
+
+				Plotly.react('myDiv', data, layout)
+        </script>
+    </body>
+</html>
